@@ -1,0 +1,26 @@
+# Local virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Environment variables and secrets
+.env
+.env.example
+*.env
+
+# Python caching
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Docker temp data
+.docker/
+
+# Windows system files
+Thumbs.db
+Desktop.ini
