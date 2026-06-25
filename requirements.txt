@@ -16,4 +16,8 @@ anyio>=4.3.0
 tenacity>=8.3.0
 structlog>=24.2.0
 httpx>=0.24.0
+<<<<<<< HEAD
 python-dotenv>=1.0.0
+=======
+python-dotenv>=1.0.0
+>>>>>>> a021efe (feat: complete backend discovery aggregation pipeline and filter parameters)

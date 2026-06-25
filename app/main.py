@@ -107,14 +107,22 @@ async def generic_error_handler(request: Request, exc: Exception):
 # ---------------------------------------------------------------------------
 # Routes
 # ---------------------------------------------------------------------------
+# 1. Main API Router layout
 app.include_router(api_router, prefix=settings.API_V1_PREFIX)
 
 
+# 2. System Health Endpoint
 @app.get("/health", tags=["Health"])
 def health():
     return {"status": "ok", "version": settings.APP_VERSION}
 
 
+<<<<<<< HEAD
 from app.api.v1.routes.ad_discovery import router as ad_discovery_router
 
 app.include_router(ad_discovery_router, prefix=settings.API_V1_PREFIX)
+=======
+# 3. Ad Discovery Integrated Pipeline Route
+from app.api.v1.routes.ad_discovery import router as ad_discovery_router
+app.include_router(ad_discovery_router, prefix=settings.API_V1_PREFIX)
+>>>>>>> a021efe (feat: complete backend discovery aggregation pipeline and filter parameters)
