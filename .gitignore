@@ -24,3 +24,8 @@ htmlcov/
 # Windows system files
 Thumbs.db
 Desktop.ini
+
+.env
+
+__pycache__/
+*.pyc

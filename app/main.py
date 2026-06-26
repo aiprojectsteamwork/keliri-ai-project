@@ -125,4 +125,18 @@ app.include_router(ad_discovery_router, prefix=settings.API_V1_PREFIX)
 # 3. Ad Discovery Integrated Pipeline Route
 from app.api.v1.routes.ad_discovery import router as ad_discovery_router
 app.include_router(ad_discovery_router, prefix=settings.API_V1_PREFIX)
+<<<<<<< HEAD
 >>>>>>> a021efe (feat: complete backend discovery aggregation pipeline and filter parameters)
+=======
+
+
+from fastapi import APIRouter
+from app.services.discovery_services import unified_ad_discovery
+
+router = APIRouter()
+
+@router.get("/discover")
+async def get_ads(brand: str):
+    # This calls the logic you defined in the services file
+    return await unified_ad_discovery(brand)
+>>>>>>> 1293834 (Finalizing app structure and discovery services)

@@ -1,17 +1,28 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from functools import lru_cache
 
-
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    # This configuration allows extra keys in .env to be ignored 
+    # instead of throwing a validation error.
+    model_config = SettingsConfigDict(
+        env_file=".env", 
+        env_file_encoding="utf-8", 
+        extra="ignore" 
+    )
 
-    # App
+    # --- API Keys ---
+    YOUTUBE_API_KEY: str = ""
+    GOOGLE_SEARCH_API_KEY: str = ""
+    GOOGLE_CX_ID: str = ""
+    META_ACCESS_TOKEN: str = ""
+
+    # --- App ---
     APP_NAME: str = "Hyperlocal Ad Platform"
     APP_VERSION: str = "1.0.0"
     DEBUG: bool = False
     API_V1_PREFIX: str = "/api/v1"
 
-    # Database
+    # --- Database ---
     POSTGRES_USER: str = "postgres"
     POSTGRES_PASSWORD: str = "postgres"
     POSTGRES_HOST: str = "localhost"
@@ -25,11 +36,11 @@ class Settings(BaseSettings):
             f"@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
         )
 
-    # Pagination
+    # --- Pagination ---
     DEFAULT_PAGE_SIZE: int = 20
     MAX_PAGE_SIZE: int = 100
 
-    # Geo
+    # --- Geo ---
     DEFAULT_RADIUS_KM: float = 10.0
     EARTH_RADIUS_KM: float = 6371.0
 
